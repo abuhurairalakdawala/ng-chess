@@ -1,0 +1,137 @@
+$board-border-color: #fff;
+$board-border-width: 1px;
+$board-borders-background-color: #4f1610;
+$board-borders-font-color: #ffffff;
+$board-piece-height: 55px;
+$board-width: 550px;
+$board-nine-parts: $board-width/9;
+$board-borders-width: $board-nine-parts/2;
+$board-game-width: $board-nine-parts*8;
+
+@function calculateBoxWidth() {
+	@return 11.11%;
+}
+
+.board {
+	border-top: $board-border-width solid $board-border-color;
+	border-right: $board-border-width solid $board-border-color;
+	width: $board-width;
+	float: left;
+}
+.game-area {
+	float: left;
+	width: $board-game-width;
+	position: relative;
+	box-sizing: border-box;
+}
+.column {
+	width: 12.5%;
+	box-sizing: border-box;
+	float: left;
+}
+.board-row {
+	border-left: $board-border-width solid $board-border-color;
+	border-bottom: $board-border-width solid $board-border-color;
+	float: left;
+	width: 100%;
+	height: $board-piece-height;
+	box-sizing: border-box;
+	position: relative;
+}
+.board-top {
+	float: left;
+	width: $board-width;
+	border-bottom: $board-border-width solid $board-border-color;
+}
+.board-top-item {
+	line-height: 25px;
+	float: left;
+	height: 25px;
+	width: calculateBoxWidth();
+	border-left: $board-border-width solid $board-border-color;
+}
+.board-top-item:first-child, .board-top-item:last-child, .board-bottom-item:first-child, .board-bottom-item:last-child {
+	width: $board-borders-width + 0.01px;
+}
+.board-left {
+	float: left;
+	width: $board-borders-width;
+	border-left: $board-border-width solid $board-border-color;
+}
+.board-left-item {
+	border-bottom: $board-border-width solid $board-border-color;
+	width: 100%;
+	height: $board-piece-height;
+	float: left;
+	line-height: $board-piece-height;
+}
+.board-right {
+	float: left;
+	width: $board-borders-width + 0.01px;
+	border-left: $board-border-width solid $board-border-color;
+}
+.board-right-item {
+	border-bottom: $board-border-width solid $board-border-color;
+	width: 100%;
+	height: $board-piece-height;
+	float: left;
+	line-height: $board-piece-height;
+}
+.board-bottom {
+	float: left;
+	width: $board-width;
+	border-bottom: $board-border-width solid $board-border-color;
+}
+.board-bottom-item {
+	float: left;
+	line-height: 25px;
+	height: 25px;
+	width: 11.111%;
+	border-left: $board-border-width solid $board-border-color;
+}
+.board-bottom, .board-right, .board-top, .board-left {
+	background-color: $board-borders-background-color;
+	color: $board-borders-font-color;
+	cursor: default;
+	box-sizing: border-box;
+}
+.board-bottom-item, .board-right-item, .board-top-item, .board-left-item {
+	text-align: center;
+	box-sizing: border-box;
+	font-size: 12px;
+}
+.r-even {
+	background-color: #d50000;
+}
+.board-row i.fa {
+	line-height: $board-piece-height;
+	text-align: center;
+	display: block;
+	font-size: 28px;
+}
+.box-moveable {
+	position: absolute;
+	width: 100%;
+}
+.board-row.highlight {
+	background-color: #daa520;
+	cursor: pointer;
+}
+.has-piece {
+	cursor: pointer;
+}
+.has-piece i {
+	transition: transform .2s;
+}
+.has-piece:hover i {
+	transform: scale(1.5);
+}
+.has-piece.black {
+	color: #000000;
+	text-shadow: 0 1px 1px #dddddd;
+}
+.has-piece.white {
+	color: #dedede;
+	text-shadow: 0 1px 1px #000000,
+				0 1px 1px #000000;
+}

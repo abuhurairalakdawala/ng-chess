@@ -1,0 +1,43 @@
+<!-- <pre>{{ piece | json }}</pre> -->
+<!-- <div style="float: left"> -->
+	<pre>{{ sortedPieces | json }}</pre>
+	<pre>{{ pieceToMove | json }}</pre>
+<!-- </div> -->
+<hr>
+<div class="board">
+	<div class="board-top">
+		<div class="board-top-item">
+		</div>
+		<div class="board-top-item" *ngFor="let c of letters">
+			{{ c }}
+		</div>
+		<div class="board-top-item">
+		</div>
+	</div>
+	<div class="board-left">
+		<div class="board-left-item" *ngFor="let c of blocks">
+			{{ 8 - c }}
+		</div>
+	</div>
+	<div class="game-area">
+		<div class="column" *ngFor="let c of blocks">
+			<div class="board-row" [attr.data-column]="c" [attr.data-row]="r" *ngFor="let r of blocks" [ngClass]="(r+c)%2 == 0 ? 'r-odd' : 'r-even'" PieceBox>
+				<div class="box-moveable"></div>
+			</div>
+		</div>
+	</div>
+	<div class="board-right">
+		<div class="board-right-item" *ngFor="let c of blocks">
+			{{ 8 - c }}
+		</div>
+	</div>
+	<div class="board-bottom">
+		<div class="board-bottom-item">
+		</div>
+		<div class="board-bottom-item" *ngFor="let c of letters">
+			{{ c }}
+		</div>
+		<div class="board-bottom-item">
+		</div>
+	</div>
+</div>
