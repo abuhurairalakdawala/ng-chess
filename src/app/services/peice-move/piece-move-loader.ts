@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { PawnMove } from './index';
+import { PawnMove, RookMove } from './index';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PieceMoveLoader {
 
-	constructor (public pawnMove: PawnMove) {
+	constructor (public pawnMove: PawnMove, public rookMove: RookMove) {
 
 	}
 
@@ -15,6 +15,10 @@ export class PieceMoveLoader {
 		switch (name) {
 			case "pawn":
 				return this.pawnMove;
+				break;
+
+			case "rook":
+				return this.rookMove;
 				break;
 			
 			default:

@@ -21,7 +21,7 @@ export class PawnMove extends PieceMoveAbstract {
 		super(sortedPiece, piecesService, pieceMovementInfo);
 	}
 
-	public findValidPosition(el, piece) {
+	public findValidPosition(piece) {
 		let o = [];
 		let frontOneStep = '';
 		let frontTwoSteps = '';

@@ -20,7 +20,7 @@ export abstract class PieceMoveAbstract {
 		this.pieceMovementInfo.data.subscribe(message => this.pieceToMove = message);
 	}
 
-	abstract findValidPosition(el, piece);
+	abstract findValidPosition(piece);
 
 	movePieceToNewPosition (oldCol, oldRow, key) {
 		if (this.sortedPieces[oldCol+':'+oldRow]) {

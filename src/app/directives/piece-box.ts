@@ -54,7 +54,7 @@ export class PieceBox {
 			}
 
 			let obj = this.pieceMoveLoader.load(item.name);
-			let nextPositions = obj.findValidPosition(this.el, item);
+			let nextPositions = obj.findValidPosition(item);
 			this.highlightNextPositions(nextPositions);
 			this.pieceMovementInfo.update('column',item.column);
 			this.pieceMovementInfo.update('row',item.row);
