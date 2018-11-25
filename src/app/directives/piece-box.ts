@@ -3,6 +3,7 @@ import { PiecesService } from '../services/pieces.service';
 import { SortedPiece } from '../services/sorted-piece';
 import { PieceMoveLoader } from '../services/peice-move/piece-move-loader';
 import { PieceMovementInfo } from '../services/piece-movement-info';
+import { SocketService } from '../services/socket.service';
 
 @Directive({
 	selector:'[PieceBox]'
@@ -23,24 +24,13 @@ export class PieceBox {
 
 	public pieceToMove;
 
+	public movementInfo;
+
 	@HostListener('click') onclick() {
 		let loc = this.dcol+':'+this.drow;
 		let item = this.piece[this.sortedPieces[loc]];
 		if (this.el.nativeElement.classList.contains('highlight')) {
-			if (this.sortedPieces[this.dcol+':'+this.drow]) {
-				this.removePieceFromBlock();
-			}
-			let item = this.piece[this.sortedPieces[this.pieceToMove.column+':'+this.pieceToMove.row]];
-			for (let i = 0; i < item.length; i++) {
-				if (item[i].column == this.pieceToMove.column && item[i].row == this.pieceToMove.row) {
-					let obj = this.pieceMoveLoader.load(item[i].name);
-					obj.movePieceToNewPosition(this.dcol, this.drow, i);
-					break;
-				}
-			}
-			this.setPiece();
-			this.removePiece();
-			this.removeHighlights();
+			this.socketService.emit({col:this.dcol, row: this.drow, pieceToMove: this.pieceToMove});
 		} else if (item && item.length) {
 			for (let j = 0; j < item.length; j++) {
 				if (item[j].column == this.dcol && item[j].row == this.drow) {
@@ -63,15 +53,15 @@ export class PieceBox {
 	}
 
 	@HostListener('dragEnd') ondragend() {
-		
+
 	}
 
 	@HostListener('dragStart') ondragstart() {
-		
+
 	}
 
 	@HostListener('drop') ondrop() {
-		console.log('drop');
+
 	}
 
 	constructor(
@@ -80,7 +70,8 @@ export class PieceBox {
 		private piecesService: PiecesService,
 		private sortedPiece: SortedPiece,
 		private pieceMovementInfo: PieceMovementInfo,
-		private pieceMoveLoader: PieceMoveLoader
+		private pieceMoveLoader: PieceMoveLoader,
+		private socketService: SocketService
 	) {
 		this.piecesService.piece.subscribe(message => this.piece = message);
 		this.sortedPiece.pieces.subscribe(message => this.sortedPieces = message);
@@ -91,6 +82,29 @@ export class PieceBox {
 		this.dcol = this.el.nativeElement.getAttribute('data-column');
 		this.drow = this.el.nativeElement.getAttribute('data-row');
 		this.setPiece();
+		this.socketService.movePieceInfo().subscribe(message => {
+			if (this.el.nativeElement.getAttribute('data-column') == message.col && this.el.nativeElement.getAttribute('data-row') == message.row) {
+				let loc = message.col+':'+message.row;
+				this.pieceMovementInfo.update('column', message.pieceToMove.column);
+				this.pieceMovementInfo.update('row', message.pieceToMove.row);
+				this.pieceMovementInfo.update('nextPositions', message.pieceToMove.nextPositions);
+				this.movementInfo = message;
+				if (this.sortedPieces[loc]) {
+					this.removePieceFromBlock();
+				}
+				let item = this.piece[this.sortedPieces[this.pieceToMove.column+':'+this.pieceToMove.row]];
+				for (let i = 0; i < item.length; i++) {
+					if (item[i].column == this.pieceToMove.column && item[i].row == this.pieceToMove.row) {
+						let obj = this.pieceMoveLoader.load(item[i].name);
+						obj.movePieceToNewPosition(message.col, message.row, i);
+						break;
+					}
+				}
+				this.setPiece();
+				this.removePiece();
+				this.removeHighlights();
+			}
+		});
 	}
 
 	setPiece() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PiecesService } from '../services/pieces.service';
 import { SortedPiece } from '../services/sorted-piece';
 import { PieceMovementInfo } from '../services/piece-movement-info';
+import { SocketService } from '../services/socket.service';
 
 @Component({
 	selector: 'chess-board',
@@ -20,10 +21,15 @@ export class BoardComponent implements OnInit {
 
 	public pieceToMove;
 
+	private obs;
+
+	public socketData = [];
+
 	constructor(
 		private piecesService: PiecesService,
 		private sortedPiece: SortedPiece,
-		private pieceMovementInfo: PieceMovementInfo
+		private pieceMovementInfo: PieceMovementInfo,
+		private socketService: SocketService
 	) { }
 
 	ngOnInit() {
@@ -51,6 +57,10 @@ export class BoardComponent implements OnInit {
 		this.piecesService.piece.subscribe(message => this.piece = message);
 		this.sortedPiece.pieces.subscribe(message => this.sortedPieces = message);
 		this.pieceMovementInfo.data.subscribe(message => this.pieceToMove = message);
+		this.socketService.connect();
+		this.socketService.movePieceInfo().subscribe(data => {
+			this.socketData.push(data);
+		});
 		 // mwlDraggable mwlDroppable
 	}
 }

@@ -21,25 +21,113 @@ export class RookMove extends PieceMoveAbstract {
 		let pos = [];
 		let col = piece.column;
 		let row = piece.row;
+		let places = [];
 
-		// console.log(el);
-
-		for (let i = 0; i < row; i++) {
-			console.log('row: '+i)
+		// upwards
+		for (let i = row-1; i >= 0; i--) {
+			let k = col+':'+i;
+			let d = false;
+			if (!this.sortedPieces[k]) {
+				pos.push(k);
+			} else {
+				let item = this.piece[this.sortedPieces[k]];
+				for (let j = 0; j < item.length; j++) {
+					if (item[j].column == col && item[j].row == i) {
+						if (item[j].color != piece.color) {
+							pos.push(k);
+							d = true;
+							break;
+						} else {
+							d = true;
+							break;
+						}
+					}
+				}
+			}
+			if (d) {
+				break;
+			}
 		}
 
-		for (let i = 7; i > row; i--) {
-			console.log('row: '+i)
+		// downwards
+		for (let i = row+1; i <= 7; i++) {
+			let k = col+':'+i;
+			let d = false;
+			if (!this.sortedPieces[k]) {
+				pos.push(k);
+			} else {
+				let item = this.piece[this.sortedPieces[k]];
+				for (let j = 0; j < item.length; j++) {
+					if (item[j].column == col && item[j].row == i) {
+						if (item[j].color != piece.color) {
+							pos.push(k);
+							d = true;
+							break;
+						} else {
+							d = true;
+							break;
+						}
+					}
+				}
+			}
+			if (d) {
+				break;
+			}
 		}
 
-		for (let i = 0; i < col; i++) {
-			console.log('col: '+i)
+		// leftwards
+		for (let i = col-1; i >= 0; i--) {
+			let k = i+':'+row;
+			let d = false;
+			if (!this.sortedPieces[k]) {
+				pos.push(k);
+			} else {
+				let item = this.piece[this.sortedPieces[k]];
+				for (let j = 0; j < item.length; j++) {
+					if (item[j].column == i && item[j].row == row) {
+						if (item[j].color != piece.color) {
+							pos.push(k);
+							d = true;
+							break;
+						} else {
+							d = true;
+							break;
+						}
+					}
+				}
+			}
+			if (d) {
+				break;
+			}
 		}
 
-		for (let i = 7; i > col; i--) {
-			console.log('col: '+i)
+		// rightwards
+		for (let i = col+1; i <= 7; i++) {
+			let k = i+':'+row;
+			let d = false;
+			if (!this.sortedPieces[k]) {
+				pos.push(k);
+			} else {
+				let item = this.piece[this.sortedPieces[k]];
+				for (let j = 0; j < item.length; j++) {
+					if (item[j].column == i && item[j].row == row) {
+						if (item[j].color != piece.color) {
+							pos.push(k);
+							d = true;
+							break;
+						} else {
+							d = true;
+							break;
+						}
+					}
+				}
+			}
+			if (d) {
+				break;
+			}
 		}
 
 		return pos;
 	}
+
 }

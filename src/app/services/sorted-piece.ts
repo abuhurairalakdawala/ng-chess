@@ -11,7 +11,7 @@ export class SortedPiece {
 			'4:7': 'wking',
 			'3:7': 'wqueen',
 			'0:7': 'wrook',
-			'5:4': 'wrook',
+			'7:7': 'wrook',
 			'1:7': 'wknight',
 			'6:7': 'wknight',
 			'2:7': 'wbishop',

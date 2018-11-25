@@ -1,4 +1,7 @@
 <!-- <pre>{{ piece | json }}</pre> -->
+<div *ngFor="let aa of socketData">
+	{{aa | json}}
+</div>
 <div style="float: left">
 	<pre>{{ sortedPieces | json }}</pre>
 	<pre>{{ pieceToMove | json }}</pre>

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
@@ -19,7 +20,8 @@ declarations: [
 		BrowserModule,
 		AppRoutingModule,
 		DragAndDropModule,
-		HttpClientModule
+		HttpClientModule,
+		FormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

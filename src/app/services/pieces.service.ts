@@ -48,8 +48,8 @@ export class PiecesService {
 					id: 2,
 					name: 'rook',
 					icon: 'fa-chess-rook',
-					column: 5,
-					row: 4,
+					column: 7,
+					row: 7,
 					color: 'white',
 					moved: false
 				}

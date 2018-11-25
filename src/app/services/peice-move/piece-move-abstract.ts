@@ -66,4 +66,18 @@ export abstract class PieceMoveAbstract {
 			this.sortedPieces[this.pieceToMove.column+':'+this.pieceToMove.row]
 		);
 	}
+
+	filterMoves(positions, piece) {
+		for (let i = 0; i < positions.length; i++) {
+			let item = this.piece[this.sortedPieces[positions[i]]];
+			if (item) {
+				let itemColor = item[0].color;
+				if (itemColor == piece.color) {
+					positions.splice(i, 1);
+				}
+			}
+		}
+
+		return positions;
+	}
 }
