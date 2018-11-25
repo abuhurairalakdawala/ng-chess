@@ -34,7 +34,7 @@ export class PieceMoveLoader {
 				break;
 			
 			default:
-				throw "class not found";
+				throw name+" : class not found";
 				
 				break;
 		}

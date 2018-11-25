@@ -14,7 +14,6 @@ export class PiecesService {
 		let arr = {
 			wking: [
 				{
-					id: 1,
 					name: 'king',
 					icon: 'fa-chess-king',
 					column: 4,
@@ -25,7 +24,6 @@ export class PiecesService {
 			],
 			wqueen: [
 				{
-					id: 1,
 					name: 'queen',
 					icon: 'fa-chess-queen',
 					column: 3,
@@ -36,7 +34,6 @@ export class PiecesService {
 			],
 			wrook: [
 				{
-					id: 1,
 					name: 'rook',
 					icon: 'fa-chess-rook',
 					column: 0,
@@ -45,7 +42,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 2,
 					name: 'rook',
 					icon: 'fa-chess-rook',
 					column: 7,
@@ -56,7 +52,6 @@ export class PiecesService {
 			],
 			wknight: [
 				{
-					id: 1,
 					name: 'knight',
 					icon: 'fa-chess-knight',
 					column: 1,
@@ -65,7 +60,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 2,
 					name: 'knight',
 					icon: 'fa-chess-knight',
 					column: 6,
@@ -76,7 +70,6 @@ export class PiecesService {
 			],
 			wbishop: [
 				{
-					id: 1,
 					name: 'bishop',
 					icon: 'fa-chess-bishop',
 					column: 2,
@@ -85,7 +78,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 2,
 					name: 'bishop',
 					icon: 'fa-chess-bishop',
 					column: 5,
@@ -96,7 +88,6 @@ export class PiecesService {
 			],
 			wpawn: [
 				{
-					id: 1,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 0,
@@ -105,7 +96,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 2,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 1,
@@ -114,7 +104,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 3,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 2,
@@ -123,7 +112,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 4,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 3,
@@ -132,7 +120,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 5,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 4,
@@ -141,7 +128,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 6,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 5,
@@ -150,7 +136,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 7,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 6,
@@ -159,7 +144,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 8,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 7,
@@ -170,7 +154,6 @@ export class PiecesService {
 			],
 			bking: [
 				{
-					id: 1,
 					name: 'king',
 					icon: 'fa-chess-king',
 					column: 4,
@@ -181,7 +164,6 @@ export class PiecesService {
 			],
 			bqueen: [
 				{
-					id: 1,
 					name: 'queen',
 					icon: 'fa-chess-queen',
 					column: 3,
@@ -192,7 +174,6 @@ export class PiecesService {
 			],
 			brook: [
 				{
-					id: 1,
 					name: 'rook',
 					icon: 'fa-chess-rook',
 					column: 0,
@@ -201,7 +182,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 2,
 					name: 'rook',
 					icon: 'fa-chess-rook',
 					column: 7,
@@ -212,7 +192,6 @@ export class PiecesService {
 			],
 			bknight: [
 				{
-					id: 1,
 					name: 'knight',
 					icon: 'fa-chess-knight',
 					column: 1,
@@ -221,7 +200,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 2,
 					name: 'knight',
 					icon: 'fa-chess-knight',
 					column: 6,
@@ -232,7 +210,7 @@ export class PiecesService {
 			],
 			bbishop: [
 				{
-					id: 1,
+					name: 'bishop',
 					icon: 'fa-chess-bishop',
 					column: 2,
 					row: 0,
@@ -240,7 +218,7 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 2,
+					name: 'bishop',
 					icon: 'fa-chess-bishop',
 					column: 5,
 					row: 0,
@@ -250,7 +228,6 @@ export class PiecesService {
 			],
 			bpawn: [
 				{
-					id: 1,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 0,
@@ -259,7 +236,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 2,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 1,
@@ -268,7 +244,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 3,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 2,
@@ -277,7 +252,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 4,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 3,
@@ -286,7 +260,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 5,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 4,
@@ -295,7 +268,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 6,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 5,
@@ -304,7 +276,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 7,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 6,
@@ -313,7 +284,6 @@ export class PiecesService {
 					moved: false
 				},
 				{
-					id: 8,
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 7,
