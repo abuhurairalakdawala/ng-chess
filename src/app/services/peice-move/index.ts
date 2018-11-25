@@ -3,3 +3,4 @@ export { PawnMove } from './pawn-move';
 export { RookMove } from './rook-move';
 export { KnightMove } from './knight-move';
 export { BishopMove } from './bishop-move';
+export { KingMove } from './king-move';

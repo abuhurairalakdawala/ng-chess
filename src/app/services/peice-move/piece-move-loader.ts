@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { PawnMove, RookMove, KnightMove, BishopMove } from './index';
+import { PawnMove, RookMove, KnightMove, BishopMove, KingMove } from './index';
 
 @Injectable({
 	providedIn: 'root'
@@ -10,7 +10,8 @@ export class PieceMoveLoader {
 		public pawnMove: PawnMove,
 		public rookMove: RookMove,
 		public knightMove: KnightMove,
-		public bishopMove: BishopMove
+		public bishopMove: BishopMove,
+		public kingMove:  KingMove
 	) {
 
 	}
@@ -31,6 +32,10 @@ export class PieceMoveLoader {
 
 			case "bishop":
 				return this.bishopMove;
+				break;
+			
+			case "king":
+				return this.kingMove;
 				break;
 			
 			default:

@@ -68,7 +68,7 @@ export abstract class PieceMoveAbstract {
 	}
 
 	filterMoves(positions, piece) {
-		for (let i = 0; i < positions.length; i++) {
+		for (let i = positions.length-1; i >= 0; i--) {
 			let item = this.piece[this.sortedPieces[positions[i]]];
 			if (item) {
 				let itemColor = item[0].color;
