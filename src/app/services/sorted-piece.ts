@@ -8,7 +8,8 @@ export class SortedPiece {
 
 	private data = new BehaviorSubject(
 		{
-			'4:7': 'wking',
+			// '4:7': 'wking',
+			'4:4': 'wking',
 			'3:7': 'wqueen',
 			'0:7': 'wrook',
 			'7:7': 'wrook',
@@ -25,10 +26,12 @@ export class SortedPiece {
 			'6:6': 'wpawn',
 			'7:6': 'wpawn',
 			'4:0': 'bking',
-			'3:0': 'bqueen',
+			'2:3': 'bqueen',
+			// '3:0': 'bqueen',
 			'0:0': 'brook',
 			'7:0': 'brook',
-			'1:0': 'bknight',
+			'1:3': 'bknight',
+			// '1:0': 'bknight',
 			'6:0': 'bknight',
 			'2:0': 'bbishop',
 			'5:0': 'bbishop',
@@ -37,7 +40,8 @@ export class SortedPiece {
 			'2:1': 'bpawn',
 			'3:1': 'bpawn',
 			'4:1': 'bpawn',
-			'5:1': 'bpawn',
+			// '5:1': 'bpawn',
+			'5:2': 'bpawn',
 			'6:1': 'bpawn',
 			'7:1': 'bpawn'
 		}

@@ -17,7 +17,7 @@ export class PiecesService {
 					name: 'king',
 					icon: 'fa-chess-king',
 					column: 4,
-					row: 7,
+					row: 4,
 					color: 'white',
 					moved: false
 				}
@@ -166,8 +166,8 @@ export class PiecesService {
 				{
 					name: 'queen',
 					icon: 'fa-chess-queen',
-					column: 3,
-					row: 0,
+					column: 2,
+					row: 3,
 					color: 'black',
 					moved: false
 				}
@@ -195,7 +195,7 @@ export class PiecesService {
 					name: 'knight',
 					icon: 'fa-chess-knight',
 					column: 1,
-					row: 0,
+					row: 3,
 					color: 'black',
 					moved: false
 				},
@@ -271,7 +271,7 @@ export class PiecesService {
 					name: 'pawn',
 					icon: 'fa-chess-pawn',
 					column: 5,
-					row: 1,
+					row: 2,
 					color: 'black',
 					moved: false
 				},

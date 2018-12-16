@@ -56,4 +56,5 @@ export class KnightMove extends PieceMoveAbstract {
 
 		return this.filterMoves(pos, piece);
 	}
+
 }

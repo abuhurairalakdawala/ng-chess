@@ -43,8 +43,7 @@ export class PieceBox {
 				return false;
 			}
 
-			let obj = this.pieceMoveLoader.load(item.name);
-			let nextPositions = obj.findValidPosition(item);
+			let nextPositions = this.getNextPositions(item);
 			this.highlightNextPositions(nextPositions);
 			this.pieceMovementInfo.update('column',item.column);
 			this.pieceMovementInfo.update('row',item.row);
@@ -88,6 +87,7 @@ export class PieceBox {
 				this.pieceMovementInfo.update('column', message.pieceToMove.column);
 				this.pieceMovementInfo.update('row', message.pieceToMove.row);
 				this.pieceMovementInfo.update('nextPositions', message.pieceToMove.nextPositions);
+				this.pieceMovementInfo.update('hasCheck', false);
 				this.movementInfo = message;
 				if (this.sortedPieces[loc]) {
 					this.removePieceFromBlock();
@@ -95,16 +95,41 @@ export class PieceBox {
 				let item = this.piece[this.sortedPieces[this.pieceToMove.column+':'+this.pieceToMove.row]];
 				for (let i = 0; i < item.length; i++) {
 					if (item[i].column == this.pieceToMove.column && item[i].row == this.pieceToMove.row) {
-						let obj = this.pieceMoveLoader.load(item[i].name);
+						var obj = this.pieceMoveLoader.load(item[i].name);
+						obj.nextPositions();
 						obj.movePieceToNewPosition(message.col, message.row, i);
+						item = item[i];
 						break;
 					}
 				}
 				this.setPiece();
 				this.removePiece();
 				this.removeHighlights();
+
+				let nextPositions = this.getNextPositions(item);
+				if (obj.kingCheckAfterMove(nextPositions)) {
+					this.markKingChecked(item);
+				}
+				// obj.identifyKingCheckPositions(this.pieceMoveLoader, item.color);
 			}
 		});
+	}
+
+	getNextPositions (item) {
+		let obj = this.pieceMoveLoader.load(item.name);
+		return obj.findValidPosition(item);
+	}
+
+	markKingChecked (item) {
+		let king;
+		if (item.color == 'white') {
+			king = this.piece['bking'][0];
+		} else {
+			king = this.piece['wking'][0];
+		}
+
+		this.renderer.addClass(this.el.nativeElement.parentNode.parentNode.children[king.column].children[king.row], 'king-check');
+		this.pieceMovementInfo.update('hasCheck', true);
 	}
 
 	setPiece() {

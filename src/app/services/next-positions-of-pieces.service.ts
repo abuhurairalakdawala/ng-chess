@@ -4,25 +4,15 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable({
 	providedIn: 'root'
 })
-export class PieceMovementInfo {
-
+export class NextPositionsOfPiecesService {
 	private subject = new BehaviorSubject(
 		{
-			chance:'white',
-			column:null,
-			row:null,
-			nextPositions:null,
-			hasCheck: false
+			white: [],
+			black: []
 		}
 	);
 
 	public data = this.subject.asObservable();
 
-	store(data) {
-		this.subject.next(data);
-	}
-
-	update(key, value) {
-		this.subject.getValue()[key] = value;
-	}
+	
 }

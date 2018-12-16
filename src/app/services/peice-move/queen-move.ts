@@ -7,7 +7,7 @@ import { PieceMovementInfo } from '../piece-movement-info';
 @Injectable({
 	providedIn: 'root'
 })
-export class BishopMove extends PieceMoveAbstract {
+export class QueenMove extends PieceMoveAbstract {
 
 	constructor (
 		sortedPiece: SortedPiece,
@@ -18,10 +18,20 @@ export class BishopMove extends PieceMoveAbstract {
 	}
 
 	findValidPosition (piece) {
-		return this.upleft(piece).concat(
-			this.upright(piece).concat(
-				this.downright(piece).concat(
-					this.downleft(piece)
+		let pos = [];
+
+		return this.upwards(piece).concat(
+			this.downwards(piece).concat(
+				this.leftwards(piece).concat(
+					this.rightwards(piece).concat(
+						this.upleft(piece).concat(
+							this.upright(piece).concat(
+								this.downright(piece).concat(
+									this.downleft(piece)
+								)
+							)
+						)
+					)
 				)
 			)
 		);
